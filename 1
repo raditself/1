@@ -1,12 +1,13 @@
-local assetId = "rbxasset://93100850693471"
+local assetId = "rbxasset://996550029674459"
 local objects = game:GetObjects(assetId)
 
 if #objects > 0 then
     local script = objects[1]
-    if script and script.Source then
-        loadstring(script.Source)()
+    if script and script:IsA("Script") then
+        local source = script:GetScriptSource()
+        loadstring(source)()
     else
-        warn("Script not found or missing Source property")
+        warn("Script not found or not a Script instance")
     end
 else
     warn("Asset not found or empty array returned")
