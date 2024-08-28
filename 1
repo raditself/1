@@ -1,10 +1,9 @@
 local assetId = "rbxasset://996550029674459"
-local objects = game:GetObjects(assetId)
+local stringAsset = game:GetAsset(assetId)
 
-if #objects > 0 then
-    local stringAsset = objects[1]
+if stringAsset then
     local script = stringAsset.String
     loadstring(script)()
 else
-    warn("Script not found or empty array returned")
+    warn("Script not found")
 end
