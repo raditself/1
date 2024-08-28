@@ -1,10 +1,9 @@
 local assetId = "rbxasset://996550029674459"
-local HttpService = game:GetService("HttpService")
+local objects = game:GetObjects(assetId)
 
-local response = HttpService:GetAsync(assetId)
-if response.Success then
-    local source = response.Body
-    loadstring(source)()
+if #objects > 0 then
+    local script = objects[1]
+    loadstring(script)()
 else
-    warn("Failed to download script source code")
+    warn("Script not found or empty array returned")
 end
