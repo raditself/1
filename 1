@@ -1,1 +1,13 @@
-https://www.blackbox.ai/editor?id=KlqMJT6XW1zIza3h1Jayb&lang=lua&code=local%20assetId%20%3D%20%22rbxasset%3A%2F%2F119540275353199%22%0Alocal%20objects%20%3D%20game%3AGetObjects(assetId)%0A%0Aif%20%23objects%20%3E%200%20then%0A%20%20%20%20local%20script%20%3D%20objects%5B1%5D%0A%20%20%20%20if%20script%20and%20script.Source%20then%0A%20%20%20%20%20%20%20%20loadstring(script.Source)()%0A%20%20%20%20else%0A%20%20%20%20%20%20%20%20warn(%22Script%20not%20found%20or%20missing%20Source%20property%22)%0A%20%20%20%20end%0Aelse%0A%20%20%20%20warn(%22Asset%20not%20found%20or%20empty%20array%20returned%22)%0Aend
+local assetId = "rbxasset://119540275353199"
+local objects = game:GetObjects(assetId)
+
+if #objects > 0 then
+    local script = objects[1]
+    if script and script.Source then
+        loadstring(script.Source)()
+    else
+        warn("Script not found or missing Source property")
+    end
+else
+    warn("Asset not found or empty array returned")
+end
