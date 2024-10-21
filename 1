@@ -1,9 +1,0 @@
-local assetId = "rbxasset://996550029674459"
-local stringAsset = game:GetAsset(assetId)
-
-if stringAsset then
-    local script = stringAsset.String
-    loadstring(script)()
-else
-    warn("Script not found")
-end
